@@ -1,16 +1,14 @@
 // components/Navbar.jsx
 import React, { useState, useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { GiChefToque, GiForkKnifeSpoon } from 'react-icons/gi';
-import { FiShoppingCart, FiUser, FiLogIn, FiLogOut, FiMenu, FiX } from 'react-icons/fi';
+import { GiChefToque } from 'react-icons/gi';
+import { FiUser, FiLogIn, FiLogOut, FiMenu, FiX } from 'react-icons/fi';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
-  const totalItems = 0; // Connect to cart state later
 
-  // Listen to auth changes
   useEffect(() => {
     const checkUser = () => {
       const storedUser = localStorage.getItem('restaurant_user');
@@ -23,9 +21,10 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', to: '/', icon: <FiUser /> },
-    { name: 'Menu', to: '/menu', icon: <GiForkKnifeSpoon /> },
-    { name: 'Orders', to: '/my-orders', icon: <FiShoppingCart /> },
+    { name: 'Home', to: '/' },
+    { name: 'Menu', to: '/menu' },
+    { name: 'About', to: '/about' },
+    { name: 'Contact', to: '/contact' },
   ];
 
   const handleLogout = () => {
@@ -44,9 +43,7 @@ const Navbar = () => {
             <div className="bg-green-100 p-1.5 rounded-full transition-all group-hover:bg-green-200">
               <GiChefToque className="text-2xl md:text-3xl text-green-700" />
             </div>
-            <span className="text-lg md:text-xl font-bold text-gray-800">
-              SS Cottage
-            </span>
+            <span className="text-lg md:text-xl font-bold text-gray-800">SS Cottage</span>
             <span className="hidden sm:inline text-gray-400 text-sm">| Restaurant</span>
           </div>
 
@@ -57,47 +54,34 @@ const Navbar = () => {
                 key={link.name}
                 to={link.to}
                 className={({ isActive }) =>
-                  `flex items-center space-x-2 px-3 py-2 rounded-lg transition-all duration-200 ${
+                  `px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                     isActive
-                      ? 'bg-green-50 text-green-700 font-medium'
+                      ? 'bg-green-50 text-green-700'
                       : 'text-gray-600 hover:bg-gray-50 hover:text-green-600'
                   }`
                 }
               >
-                {link.icon}
-                <span>{link.name}</span>
+                {link.name}
               </NavLink>
             ))}
 
-            <div className="flex items-center space-x-3 ml-4">
-              <NavLink
-                to="/cart"
-                className="relative p-2 text-gray-600 hover:text-green-600 transition-colors"
-              >
-                <FiShoppingCart className="text-xl" />
-                {totalItems > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-green-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center shadow-sm">
-                    {totalItems}
-                  </span>
-                )}
-              </NavLink>
-
+            <div className="flex items-center space-x-3 ml-6">
               {!user ? (
                 <button
                   onClick={() => navigate('/login')}
-                  className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition shadow-sm"
+                  className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm transition shadow-sm"
                 >
                   <FiLogIn />
                   <span>Login</span>
                 </button>
               ) : (
                 <div className="flex items-center space-x-3">
-                  <span className="text-gray-700 text-sm hidden lg:inline">
+                  <span className="text-gray-700 text-sm">
                     Hi, {user.name.split(' ')[0]}
                   </span>
                   <button
                     onClick={handleLogout}
-                    className="flex items-center space-x-2 bg-red-50 hover:bg-red-100 text-red-700 px-4 py-2 rounded-lg transition"
+                    className="flex items-center space-x-2 bg-red-50 hover:bg-red-100 text-red-700 px-4 py-2 rounded-lg text-sm transition"
                   >
                     <FiLogOut />
                     <span>Logout</span>
@@ -126,18 +110,17 @@ const Navbar = () => {
               to={link.to}
               onClick={() => setIsOpen(false)}
               className={({ isActive }) =>
-                `flex items-center space-x-3 px-4 py-3 rounded-lg transition ${
+                `block px-4 py-3 rounded-lg transition ${
                   isActive
                     ? 'bg-green-50 text-green-700 font-medium'
                     : 'text-gray-600 hover:bg-gray-50'
                 }`
               }
             >
-              {link.icon}
-              <span>{link.name}</span>
+              {link.name}
             </NavLink>
           ))}
-          <div className="pt-2 space-y-3">
+          <div className="pt-3 space-y-3">
             {!user ? (
               <button
                 onClick={() => {

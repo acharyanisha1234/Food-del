@@ -24,7 +24,7 @@ const ForgetPassword = ({ isOpen, onClose }) => {
         setLoading(false);
         return;
       }
-
+              
       // In a real app, send reset link via email
       setMessage(`Password reset link has been sent to ${email}. (Demo mode)`);
       setEmail('');

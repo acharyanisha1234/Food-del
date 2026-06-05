@@ -2,8 +2,8 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Login from './components/Login';
-import Register from './components/Register';
-import Cart from './components/Cart';   
+import ForgotPassword from './components/ForgetPassword';
+import Cart from './pages/Cart';   
 import Menu from './components/Menu';   
 import MyOrders from './components/MyOrders'; 
 
@@ -27,9 +27,9 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<h1 className="text-amber-400 text-center mt-10">Welcome to SS Cottage and Resturant</h1>} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/ForgetPassword" element={<ForgotPassword/>} />
+       <Route path="/cart" element={<Cart />} />
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/my-orders" element={<MyOrdersPage />} />
        

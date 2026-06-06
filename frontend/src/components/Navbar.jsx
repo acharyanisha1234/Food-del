@@ -1,4 +1,3 @@
-// components/Navbar.jsx
 import React, { useState, useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { GiChefToque } from 'react-icons/gi';
@@ -147,6 +146,7 @@ const Navbar = () => {
           </div>
         </div>
       )}
+      
 
       <style>{`
         @keyframes slideDown {
@@ -158,6 +158,7 @@ const Navbar = () => {
         }
       `}</style>
     </nav>
+    
   );
 };
 

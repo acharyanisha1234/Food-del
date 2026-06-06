@@ -1,8 +1,8 @@
+// src/components/Login.jsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GiChefToque } from 'react-icons/gi';
 import { MdEmail, MdLock, MdPerson, MdPhone } from 'react-icons/md';
-import ForgetPassword from './ForgetPassword'; 
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -14,7 +14,6 @@ const Login = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const [isForgetOpen, setIsForgetOpen] = useState(false);
 
   // If already logged in, go home
   useEffect(() => {
@@ -22,21 +21,11 @@ const Login = () => {
     if (user) navigate('/');
   }, [navigate]);
 
-  // Forgot Password handler
+  // Forgot Password handler – goes directly to reset page
   const handleForgotPassword = () => {
-    if (!email) {
-      setError('Please enter your email address to reset password.');
-      return;
-    }
-    const users = JSON.parse(localStorage.getItem('restaurant_users') || '[]');
-    const userExists = users.some(u => u.email === email);
-    if (!userExists) {
-      setError('No account found with this email.');
-      return;
-    }
-    // Simulate sending reset link
-    alert(`Password reset link sent to ${email} (demo).\nIn a real app, you would receive an email.`);
-    setError('');
+    // Pass the current email if any, else empty string
+    navigate('/reset-password', { state: { email: email || '' } });
+    setError(''); // clear any existing error
   };
 
   const handleSubmit = async (e) => {
@@ -45,7 +34,7 @@ const Login = () => {
     setLoading(true);
 
     if (!isLogin) {
-    // Register
+      // Register
       if (!name.trim()) {
         setError('Full name is required');
         setLoading(false);
@@ -82,7 +71,7 @@ const Login = () => {
       localStorage.setItem('restaurant_user', JSON.stringify(userWithoutPassword));
       navigate('/');
     } else {
-      // LOGIN 
+      // Login
       const users = JSON.parse(localStorage.getItem('restaurant_users') || '[]');
       const foundUser = users.find(u => u.email === email && u.password === password);
       if (foundUser) {
@@ -110,7 +99,7 @@ const Login = () => {
           <p className="text-green-600 mt-2">Meteri Resort</p>
         </div>
 
-        {/* Card */}
+        {/* Form Card */}
         <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
           {/* Tabs */}
           <div className="flex gap-2 mb-8 bg-gray-100 rounded-full p-1">

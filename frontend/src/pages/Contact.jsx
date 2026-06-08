@@ -46,11 +46,11 @@ const Contact = () => {
             <div className="space-y-4 mb-8">
               <div className="flex items-center gap-3">
                 <FaMapMarkerAlt className="text-green-600 dark:text-green-400 text-xl" />
-                <span className="text-gray-700 dark:text-gray-300">Meteri Resort, Kathmandu, Nepal</span>
+                <span className="text-gray-700 dark:text-gray-300">Meteri Resort, Jhumka,Sunsari</span>
               </div>
               <div className="flex items-center gap-3">
                 <FaPhoneAlt className="text-green-600 dark:text-green-400 text-xl" />
-                <span className="text-gray-700 dark:text-gray-300">+977 9812345678</span>
+                <span className="text-gray-700 dark:text-gray-300">+977 9810104259</span>
               </div>
               <div className="flex items-center gap-3">
                 <FaEnvelope className="text-green-600 dark:text-green-400 text-xl" />

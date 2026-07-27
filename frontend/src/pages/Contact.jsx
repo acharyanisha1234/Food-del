@@ -1,4 +1,3 @@
-// src/pages/Contact.jsx
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaClock, FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';

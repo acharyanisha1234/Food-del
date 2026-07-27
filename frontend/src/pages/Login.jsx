@@ -94,7 +94,7 @@ const Login = () => {
               <GiChefToque className="text-4xl text-white" />
             </div>
           </div>
-          <h1 className="text-4xl font-bold text-green-800">SS Cottage and Restaurant</h1>
+          <h1 className="text-4xl font-bold text-green-800">SS Cottage and Restaurant in Jhumka </h1>
           <p className="text-green-600 mt-2">Meteri Resort</p>
         </div>
 

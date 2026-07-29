@@ -37,7 +37,7 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem('restaurant_user', JSON.stringify(userWithoutPassword));
       return true;
     }
-    return false; // no matching user found
+    return false; 
   };
 
   /**
@@ -73,7 +73,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('restaurant_user');
   };
 
-  // Provide the auth context value to all children
+  
   return (
     <AuthContext.Provider value={{ user, loading, login, register, logout }}>
       {children}

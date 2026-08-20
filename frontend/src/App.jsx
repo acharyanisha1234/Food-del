@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import HomePage from './pages/Home';
 import Menu from './pages/Menu';
 import AboutPage from './pages/AboutPage';
-import Contact from './pages/Contact';       // ✅ import Contact
+import Contact from './pages/Contact';     
 import Login from './pages/Login';
 import ResetPassword from './pages/ResetPassword';
 import Cart from './pages/Cart';

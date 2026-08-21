@@ -8,9 +8,9 @@ import Contact from './pages/Contact';
 import Login from './pages/Login';
 import ResetPassword from './pages/ResetPassword';
 import Cart from './pages/Cart';
-import MyOrders from './components/MyOrders';
-import { AuthProvider } from './context/AuthContext';
+import MyOrders from './pages/MyOrders';
 import { CartProvider } from './Context/CartContext';
+import { AuthProvider } from './context/AuthContext';
 
 const App = () => {
   return (

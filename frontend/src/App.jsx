@@ -10,7 +10,7 @@ import ResetPassword from './pages/ResetPassword';
 import Cart from './pages/Cart';
 import MyOrders from './pages/MyOrders';
 import { CartProvider } from './Context/CartContext';
-import { AuthProvider } from './context/AuthContext';
+import { AuthProvider } from './Context/AuthContext';
 
 const App = () => {
   return (

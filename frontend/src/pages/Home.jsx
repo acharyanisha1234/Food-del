@@ -5,7 +5,7 @@ import { FaLeaf, FaStar, FaQuoteLeft, FaArrowRight } from 'react-icons/fa';
 import { MdRestaurantMenu, MdRoomService, MdLocalParking } from 'react-icons/md';
 
 const HomePage = () => {
-  // Mock data for featured menu items
+ 
   const featuredItems = [
     { name: 'Meteri Special Thali', price: '₹450', desc: 'Traditional Nepali set with 8 varieties', img: 'https://images.unsplash.com/photo-1546833998-877b37c2e5c1?w=600' },
     { name: 'Chicken Chowmein', price: '₹280', desc: 'Wok‑tossed noodles with fresh vegetables', img: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=600' },
@@ -15,7 +15,7 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
 
-      {/* Hero Section – full width with overlay and image */}
+      
       <section className="relative h-[90vh] md:h-[100vh] flex items-center justify-center bg-cover bg-center bg-no-repeat"
                style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80)' }}>
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50" />
@@ -40,7 +40,7 @@ const HomePage = () => {
             </Link>
           </div>
         </div>
-        {/* Scroll indicator */}
+        
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce">
           <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
             <div className="w-1 h-2 bg-white rounded-full mt-2 animate-pulse" />

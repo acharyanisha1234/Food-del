@@ -89,8 +89,16 @@ const Menu = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {menuData[activeCategory]?.map((item) => (
             <div key={item.id} className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition group">
-              <div className="relative h-48 overflow-hidden">
-                <img src={item.image} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+              <div className="relative h-48 overflow-hidden bg-gray-200 dark:bg-gray-700">
+                <img 
+                  src={item.image} 
+                  alt={item.name} 
+                  className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = 'https://via.placeholder.com/500x300?text=No+Image';
+                  }}
+                />
                 <div className="absolute top-2 right-2 bg-white/90 dark:bg-gray-900/90 px-2 py-1 rounded-full text-sm font-semibold text-green-700 dark:text-green-400">
                   ★ {item.rating}
                 </div>

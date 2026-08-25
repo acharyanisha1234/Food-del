@@ -12,7 +12,8 @@ import ResetPassword from './pages/ResetPassword';
 import Cart from './pages/Cart';
 import MyOrders from './pages/MyOrders';
 import Checkout from './pages/Checkout';
-import Reservation from './pages/Reservation';   // new
+import Reservation from './pages/Reservation';
+import Dashboard from './pages/Dashboard';
 import { CartProvider } from './Context/CartContext';
 import { AuthProvider } from './Context/AuthContext';
 
@@ -32,6 +33,7 @@ const App = () => {
           <Route path="/my-orders" element={<MyOrders />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/reservation" element={<Reservation />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
         <ToastContainer position="bottom-right" autoClose={3000} />
       </CartProvider>

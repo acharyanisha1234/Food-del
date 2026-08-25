@@ -21,13 +21,12 @@ const Reservation = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { name, email, phone, date, time, guests } = formData;
+    const { name, email, phone, date, time } = formData;
     if (!name || !email || !phone || !date || !time) {
       toast.error('Please fill all required fields');
       return;
     }
     setLoading(true);
-    // Simulate booking
     setTimeout(() => {
       toast.success('Table booked successfully! We will contact you shortly.');
       setFormData({

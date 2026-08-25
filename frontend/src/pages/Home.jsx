@@ -23,7 +23,7 @@ import {
   FaUtensils,
   FaLeaf
 } from 'react-icons/fa';
-import { MdRestaurantMenu, MdRoomService, MdLocalParking, MdLocationOn, MdEmojiFoodBeverage } from 'react-icons/md';
+import { MdRestaurantMenu, MdRoomService, MdLocationOn, MdEmojiFoodBeverage } from 'react-icons/md';
 
 const HomePage = () => {
   const owner = {
@@ -52,7 +52,6 @@ const HomePage = () => {
     { name: 'Dal Bhat', icon: <MdEmojiFoodBeverage />, price: '₹350' },
   ];
 
-  // Image URLs (replace with your own later)
   const images = {
     hero: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
     garden: 'https://images.unsplash.com/photo-1585325701956-6b2e0f29d7d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
@@ -67,12 +66,11 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
       
-      {/* ===== HERO SECTION ===== */}
+      {/* HERO SECTION */}
       <section className="relative h-[100vh] flex items-center justify-center bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${images.hero})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/60" />
-        
         <div className="relative z-10 max-w-5xl mx-auto text-center text-white px-6">
           <div className="inline-flex items-center gap-2 bg-amber-500/20 backdrop-blur-md px-6 py-2 rounded-full border border-amber-500/30 mb-6">
             <span className="w-2 h-2 bg-amber-400 rounded-full animate-pulse"></span>
@@ -80,7 +78,6 @@ const HomePage = () => {
               👨‍🍳 OWNED BY {owner.name.toUpperCase()}
             </span>
           </div>
-
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-4 tracking-tight leading-tight">
             Welcome to <br />
             <span className="text-amber-400 relative inline-block">
@@ -88,16 +85,13 @@ const HomePage = () => {
               <span className="absolute -bottom-2 left-0 w-full h-1 bg-amber-400/50 rounded-full"></span>
             </span>
           </h1>
-          
           <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-2 font-light">
             Authentic Nepali Cuisine • Serene Garden • Warm Hospitality
           </p>
-          
           <p className="text-amber-300/90 mb-8 flex items-center justify-center gap-2 text-lg">
             <MdLocationOn className="text-amber-400" />
             <span>{owner.location}</span>
           </p>
-
           <div className="flex flex-wrap gap-4 justify-center">
             <Link to="/menu" className="group bg-amber-600 hover:bg-amber-700 text-white px-8 py-3.5 rounded-full font-semibold transition-all shadow-xl hover:shadow-amber-600/30 flex items-center gap-2">
               Explore Menu <GiForkKnifeSpoon className="group-hover:rotate-12 transition" />
@@ -109,7 +103,6 @@ const HomePage = () => {
               Contact Us
             </Link>
           </div>
-
           <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-400 text-sm animate-bounce">
             <span>Scroll</span>
             <div className="w-5 h-8 border-2 border-gray-400 rounded-full flex justify-center">
@@ -119,29 +112,17 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ===== STATS BAR ===== */}
+      {/* STATS BAR */}
       <section className="bg-amber-50 dark:bg-gray-800 border-b border-amber-200/30">
         <div className="max-w-6xl mx-auto px-4 py-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          <div>
-            <p className="text-3xl font-bold text-amber-600">2015</p>
-            <p className="text-gray-600 dark:text-gray-400 text-sm">Established</p>
-          </div>
-          <div>
-            <p className="text-3xl font-bold text-amber-600">50+</p>
-            <p className="text-gray-600 dark:text-gray-400 text-sm">Dishes</p>
-          </div>
-          <div>
-            <p className="text-3xl font-bold text-amber-600">4.9⭐</p>
-            <p className="text-gray-600 dark:text-gray-400 text-sm">Guest Rating</p>
-          </div>
-          <div>
-            <p className="text-3xl font-bold text-amber-600">1000+</p>
-            <p className="text-gray-600 dark:text-gray-400 text-sm">Happy Guests</p>
-          </div>
+          <div><p className="text-3xl font-bold text-amber-600">2015</p><p className="text-gray-600 dark:text-gray-400 text-sm">Established</p></div>
+          <div><p className="text-3xl font-bold text-amber-600">50+</p><p className="text-gray-600 dark:text-gray-400 text-sm">Dishes</p></div>
+          <div><p className="text-3xl font-bold text-amber-600">4.9⭐</p><p className="text-gray-600 dark:text-gray-400 text-sm">Guest Rating</p></div>
+          <div><p className="text-3xl font-bold text-amber-600">1000+</p><p className="text-gray-600 dark:text-gray-400 text-sm">Happy Guests</p></div>
         </div>
       </section>
 
-      {/* ===== WELCOME + OWNER SECTION ===== */}
+      {/* ABOUT + OWNER */}
       <section className="py-16 max-w-6xl mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
@@ -188,7 +169,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ===== SERVICES ===== */}
+      {/* SERVICES */}
       <section className="py-16 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
@@ -198,9 +179,7 @@ const HomePage = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((s, i) => (
               <div key={i} className="bg-white dark:bg-gray-900 rounded-2xl p-6 text-center shadow-md hover:shadow-xl transition group">
-                <div className="text-amber-500 group-hover:scale-110 transition mb-3 flex justify-center">
-                  {s.icon}
-                </div>
+                <div className="text-amber-500 group-hover:scale-110 transition mb-3 flex justify-center">{s.icon}</div>
                 <h3 className="font-bold text-gray-800 dark:text-white">{s.title}</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400">{s.desc}</p>
               </div>
@@ -209,7 +188,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ===== MENU HIGHLIGHTS ===== */}
+      {/* MENU HIGHLIGHTS */}
       <section className="py-16">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
@@ -233,7 +212,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ===== GALLERY ===== */}
+      {/* GALLERY */}
       <section className="py-16 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-2">Our Resort Gallery</h2>
@@ -258,7 +237,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ===== TESTIMONIAL ===== */}
+      {/* TESTIMONIAL */}
       <section className="py-16 bg-white dark:bg-gray-900">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <FaQuoteLeft className="text-5xl text-amber-400 mx-auto mb-4 opacity-60" />
@@ -277,7 +256,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ===== CTA ===== */}
+      {/* ===== CTA – with BOOK A TABLE button ===== */}
       <section className="py-20 bg-green-700 dark:bg-green-800 text-white text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1000')] bg-cover bg-center"></div>
         <div className="relative z-10 max-w-3xl mx-auto px-4">
@@ -285,6 +264,13 @@ const HomePage = () => {
           <p className="text-xl text-gray-200 mb-2">📍 {owner.location}</p>
           <p className="text-lg text-gray-200 mb-6">📞 <a href="tel:+9779810104259" className="text-amber-300 hover:text-amber-200">{owner.phone}</a></p>
           <div className="flex flex-wrap gap-4 justify-center">
+            {/* Book a Table button - navigates to /reservation */}
+            <Link 
+              to="/reservation" 
+              className="bg-amber-600 hover:bg-amber-700 text-white px-10 py-3.5 rounded-full font-semibold transition shadow-lg"
+            >
+              Book a Table
+            </Link>
             <Link to="/contact" className="bg-white text-green-700 px-10 py-3.5 rounded-full font-semibold hover:bg-gray-100 transition shadow-lg">
               Contact Us
             </Link>
@@ -295,7 +281,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ===== FOOTER ===== */}
+      {/* FOOTER */}
       <footer className="bg-gray-900 text-gray-400 py-8 text-center border-t border-gray-800">
         <p className="text-sm">© 2026 <span className="text-amber-400 font-semibold">Meteri Resort</span></p>
         <p className="text-sm">Owned by <span className="text-amber-400 font-semibold">{owner.name}</span></p>

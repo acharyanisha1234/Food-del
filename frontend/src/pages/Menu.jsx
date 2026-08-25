@@ -8,7 +8,7 @@ const Menu = () => {
   const { addToCart } = useCart();
   const [activeCategory, setActiveCategory] = useState('starters');
 
-  // Helper to generate consistent images using picsum (seed based on id)
+  
   const getImageUrl = (id) => `https://picsum.photos/seed/${id}/400/300`;
 
   const menuData = {

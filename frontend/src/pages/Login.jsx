@@ -14,17 +14,14 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  // If already logged in, go home
   useEffect(() => {
     const user = localStorage.getItem('restaurant_user');
     if (user) navigate('/');
   }, [navigate]);
 
-  // Forgot Password handler – goes directly to reset page
   const handleForgotPassword = () => {
-    // Pass the current email if any, else empty string
     navigate('/reset-password', { state: { email: email || '' } });
-    setError(''); // clear any existing error
+    setError('');
   };
 
   const handleSubmit = async (e) => {
@@ -33,7 +30,6 @@ const Login = () => {
     setLoading(true);
 
     if (!isLogin) {
-      // Register
       if (!name.trim()) {
         setError('Full name is required');
         setLoading(false);
@@ -65,12 +61,10 @@ const Login = () => {
       const newUser = { name, email, phone, password };
       users.push(newUser);
       localStorage.setItem('restaurant_users', JSON.stringify(users));
-      // Auto login after register
       const { password: _, ...userWithoutPassword } = newUser;
       localStorage.setItem('restaurant_user', JSON.stringify(userWithoutPassword));
       navigate('/');
     } else {
-      // Login
       const users = JSON.parse(localStorage.getItem('restaurant_users') || '[]');
       const foundUser = users.find(u => u.email === email && u.password === password);
       if (foundUser) {
@@ -141,6 +135,7 @@ const Login = () => {
                       onChange={(e) => setName(e.target.value)}
                       className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-400 focus:border-green-400 outline-none transition"
                       placeholder="Enter your name"
+                      autoComplete="name"
                     />
                   </div>
                 </div>
@@ -155,6 +150,7 @@ const Login = () => {
                       onChange={(e) => setPhone(e.target.value)}
                       className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-400 focus:border-green-400 outline-none transition"
                       placeholder="+977 ........."
+                      autoComplete="tel"
                     />
                   </div>
                 </div>
@@ -173,6 +169,7 @@ const Login = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-400 focus:border-green-400 outline-none transition"
                   placeholder="Enter your email"
+                  autoComplete="email"
                 />
               </div>
             </div>
@@ -190,6 +187,7 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-400 focus:border-green-400 outline-none transition"
                   placeholder="••••••••"
+                  autoComplete={isLogin ? "current-password" : "new-password"}
                 />
               </div>
             </div>
@@ -206,6 +204,7 @@ const Login = () => {
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-400 focus:border-green-400 outline-none transition"
                     placeholder="••••••••"
+                    autoComplete="new-password"
                   />
                 </div>
               </div>
@@ -263,7 +262,6 @@ const Login = () => {
           </form>
         </div>
 
-        {/* Footer */}
         <div className="flex justify-center mt-6 gap-2 items-center">
           <span className="text-green-700/60 text-xs">Authentic flavors • Warm hospitality</span>
         </div>
